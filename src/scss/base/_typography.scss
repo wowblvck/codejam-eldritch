@@ -5,8 +5,6 @@ body {
 	font-size: 16px;
 	color: #fff;
 	text-align: center;
-	background-color: rgba(0, 0, 0, 0.5);
+	background: url('../assets/img/static/background.png');
 	background-size: cover;
-	background-blend-mode: multiply;
-	transition: background-image 1s ease-in-out;
 }

@@ -1,3 +1,13 @@
 @import
-	'base/base',  //Base
-	'base/typography'; //Typography
+	'base/base', //Base
+	'base/typography', //Typography
+	'base/buttons'; //Buttons
+
+
+@import
+	'components/start', //Start Selector
+	'components/selector', //Diffuclties Selector
+	'components/ancients'; //Ancients Selector
+
+@import
+	'layout/header'; //Header

@@ -4,8 +4,39 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+  <link href='https://fonts.googleapis.com/css?family=Press Start 2P' rel='stylesheet'>
   <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
+  <header>
+    <div class="start">
+      <img src="./assets/img/content/logo.png" alt="Game Logo" class="start__logo">
+      <button id="btn-start" class="btn">Начать игру!</button>
+    </div>
+    <div class="selector__bg">
+      <div class="selector__wrapper">
+        <button id="btn-close" class="close">Закрыть</button>
+        <p class="selector__title">Выбери сложность</p>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="ancients">
+      <button id="btn-close" class="close">Закрыть</button>
+      <p class="ancients__title">Выберите персонажа</p>
+      <p class="ancients__hero"></p>
+      <div class="ancients__container">
+        <ul class="slider__container"></ul>
+        <div class="controls__container">
+          <ul class="slider__controls">
+            <li class="controls controls__prev">Назад</li>
+            <li class="controls controls__next">Вперед</li>
+          </ul>
+          <button id="btn-select" class="ancients__select">Выбрать</button>
+        </div>
+      </div>
+    </div>
+  </main>
 </body>
 </html>

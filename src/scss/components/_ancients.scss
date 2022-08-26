@@ -1,0 +1,86 @@
+.ancients {
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+    &.active {
+        opacity: 1;
+        pointer-events: all;
+        transition: all 0.5s ease;
+    }
+    &__title {
+        font-size: 14pt;
+        font-family: "Press Start 2p";
+        margin-bottom: 20px;
+    }
+    &__hero {
+        font-size: 14pt;
+        font-family: "Press Start 2p";
+        margin-bottom: 20px;
+    }
+    &__select {
+        padding: 10px;
+        background-color: transparent;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        font-size: 16pt;
+        font-family: "Press Start 2p";
+        cursor: pointer; 
+        position: absolute;
+        bottom: 0;
+        transform: translateX(-50%);
+        &:hover {
+            background-color: green;
+            transition: all 0.5s;
+            color: whitesmoke;
+        }
+    }
+}
+
+.slider {
+    &__controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 300px;
+        list-style: none;
+        margin-top: 20px;
+    }
+    &__item {
+        img {
+            width: 350px;
+            transition: transform .1s ease;
+        }
+    }
+}
+
+.controls {
+    padding: 10px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 16pt;
+    font-family: "Press Start 2p";
+    border-radius: 5px;
+    cursor: pointer;
+    &__container {
+        position: relative;
+    }
+    &:hover {
+        background-color: #d1483f;
+        transition: all 0.5s;
+        color: whitesmoke;
+    }
+    &:active {
+        position: relative;
+        top: .2em;
+    }
+}

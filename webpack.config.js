@@ -44,14 +44,14 @@ module.exports = {
       },
       {
         test: /\.(png|gif|jpe?g|svg)$/i,
-        type: 'asset',
+        type: 'asset/resource',
         parser: {
           dataUrlCondition: {
             maxSize: environment.limits.images,
           },
         },
         generator: {
-          filename: 'assets/img/[name].[hash:6][ext]',
+          filename: 'assets/img/design/[name].[hash:6][ext]',
         },
       },
       // {
@@ -68,6 +68,9 @@ module.exports = {
       // }
     ],
   },
+  // resolve: { 
+  //   modules: [path.resolve(__dirname, 'node_modules'), 'node_modules']
+  // },
   optimization: {
     minimizer: [
       '...',
@@ -113,18 +116,18 @@ module.exports = {
       verbose: true,
       cleanOnceBeforeBuildPatterns: ['**/*', '!stats.json'],
     }),
-    // new CopyWebpackPlugin({
-    //   patterns: [
-    //     {
-    //       from: path.resolve(environment.paths.source, 'assets', 'img', 'content'),
-    //       to: path.resolve(environment.paths.output, 'assets', 'img', 'content'),
-    //       toType: 'dir',
-    //       globOptions: {
-    //         ignore: ['*.DS_Store', 'Thumbs.db'],
-    //       },
-    //     },
-    //   ],
-    // }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(environment.paths.source, 'assets', 'img', 'content'),
+          to: path.resolve(environment.paths.output, 'assets', 'img', 'content'),
+          toType: 'dir',
+          globOptions: {
+            ignore: ['*.DS_Store', 'Thumbs.db'],
+          },
+        },
+      ],
+    }),
   ].concat(htmlPluginEntries),
   target: 'web',
 };
