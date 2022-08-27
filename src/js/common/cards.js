@@ -1,5 +1,6 @@
 import { greenCards, brownCards, blueCards } from "../data/mythicCards/index";
 import ancientsData from "../data/ancients";
+import loadDeck from "./deck";
 
 //Sum of Column in Matrix
 const sumCol = (arr, col) =>
@@ -91,15 +92,16 @@ export default function cardRandomizer(currentHero, currentDifficult) {
         setDeck(greenStack, ancientsData[currentHero].firstStage.greenCards), 
         setDeck(brownStack, ancientsData[currentHero].firstStage.brownCards), 
         setDeck(blueStack, ancientsData[currentHero].firstStage.blueCards)
-    ];
+    ].flat().sort(() => Math.random() - 0.5);
     deckSecondStage = [
         setDeck(greenStack, ancientsData[currentHero].secondStage.greenCards), 
         setDeck(brownStack, ancientsData[currentHero].secondStage.brownCards), 
         setDeck(blueStack, ancientsData[currentHero].secondStage.blueCards)
-    ];
+    ].flat().sort(() => Math.random() - 0.5);
     deckThirdStage = [
         setDeck(greenStack, ancientsData[currentHero].thirdStage.greenCards), 
         setDeck(brownStack, ancientsData[currentHero].thirdStage.brownCards), 
         setDeck(blueStack, ancientsData[currentHero].thirdStage.blueCards)
-    ];
+    ].flat().sort(() => Math.random() - 0.5);
+    loadDeck();
 }

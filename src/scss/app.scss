@@ -7,7 +7,9 @@
 @import
 	'components/start', //Start Selector
 	'components/selector', //Diffuclties Selector
-	'components/ancients'; //Ancients Selector
+	'components/ancients', //Ancients Selector
+	'components/deck'; //Deck Frame
 
 @import
-	'layout/header'; //Header
+	'layout/header', //Header
+	'layout/footer'; //Footer

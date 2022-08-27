@@ -14,7 +14,7 @@ document.querySelector('.controls__next').addEventListener('click', () => {
     if(currentAncient > ancientsData.length - 1) {
         currentAncient = 0;
     }
-    document.querySelector('.ancients__hero').textContent = ancientsData[currentAncient].locale.toLocaleUpperCase();
+    document.querySelector('.ancients__hero').textContent = ancientsData[currentAncient].locale.toUpperCase();
 });
 
 document.querySelector('.controls__prev').addEventListener('click', () => {
@@ -22,9 +22,10 @@ document.querySelector('.controls__prev').addEventListener('click', () => {
     if(currentAncient < 0) {
         currentAncient = ancientsData.length - 1;
     }
-    document.querySelector('.ancients__hero').textContent = ancientsData[currentAncient].locale.toLocaleUpperCase();
+    document.querySelector('.ancients__hero').textContent = ancientsData[currentAncient].locale.toUpperCase();
 });
 
 document.querySelector('.ancients__select').addEventListener('click', () => {
+    localStorage.setItem("hero", ancientsData[currentAncient].locale.toLowerCase());
     cardRandomizer(currentAncient, currentDifficult);
 });

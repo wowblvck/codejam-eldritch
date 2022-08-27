@@ -1,3 +1,17 @@
 header {
-    padding: 20px 20px 0px;
+    padding: 20px 20px 0;
+}
+
+.again {
+    position: absolute;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease;
+    &.active {
+        opacity: 1;
+        pointer-events: all;
+        transition: all 0.5s ease;
+    }
 }

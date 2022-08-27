@@ -7,7 +7,7 @@ export let currentDifficult = 0;
 
 window.addEventListener('DOMContentLoaded', () => {
 
-    const startBtn = document.querySelector('#btn-start');
+    const startBtn = document.querySelectorAll('#btn-start');
     const closeBtn = document.querySelectorAll('#btn-close');
     const selectorBg = document.querySelector('.selector__bg');
     const selectorWrapper = document.querySelector('.selector__wrapper');
@@ -57,15 +57,24 @@ window.addEventListener('DOMContentLoaded', () => {
     loadAncientsFromFile();
 
     //Events for open and close selector
-    startBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        document.querySelector('.start').style.display = 'none';
-        selectorBg.classList.add('active');
-        selectorWrapper.classList.add('active');
-        closeBtn.forEach(btn => {
-            btn.addEventListener('click', closeWindows);
-        });
-
+    startBtn.forEach((btn, i) => {
+        if(i == 0) {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelector('.start').style.display = 'none';
+                // document.getElementsByTagName('header')[0].style.padding = "0";
+                selectorBg.classList.add('active');
+                selectorWrapper.classList.add('active');
+                closeBtn.forEach(btn => {
+                    btn.addEventListener('click', closeWindows);
+                });
+            });
+        }
+        if(i == 1) {
+            btn.addEventListener('click', () => {
+                location.reload();
+            });
+        }
     });
 
     document.addEventListener('click', function(e) {
@@ -73,6 +82,7 @@ window.addEventListener('DOMContentLoaded', () => {
             document.querySelector('.start').style.display = 'flex';
             selectorBg.classList.remove('active');
             selectorWrapper.classList.remove('active');
+            // document.getElementsByTagName('header')[0].style.padding = "20px 20px 0";
             document.querySelector('.ancients').classList.remove('active');
         }
     }, true);
@@ -82,6 +92,7 @@ window.addEventListener('DOMContentLoaded', () => {
     function selectDifficulties(event, iterable) {
         if(event.target.id == difficulties[iterable].id) {
             currentDifficult = iterable;
+            localStorage.setItem("difficult", difficulties[iterable].name.toLowerCase());
         }
         selectorWrapper.classList.remove('active');
         loadAncientsCards();
@@ -94,6 +105,7 @@ window.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.selector__bg').classList.remove('active');
         document.querySelector('.selector__wrapper').classList.remove('active');
         document.querySelector('.ancients').classList.remove('active');
+        // document.getElementsByTagName('header')[0].style.padding = "20px 20px 0";
     }
     //End close all wrappers
 });

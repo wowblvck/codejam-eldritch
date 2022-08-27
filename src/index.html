@@ -8,35 +8,65 @@
   <link href='https://fonts.googleapis.com/css?family=Press Start 2P' rel='stylesheet'>
   <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
-<body>
-  <header>
-    <div class="start">
-      <img src="./assets/img/content/logo.png" alt="Game Logo" class="start__logo">
-      <button id="btn-start" class="btn">Начать игру!</button>
-    </div>
-    <div class="selector__bg">
-      <div class="selector__wrapper">
-        <button id="btn-close" class="close">Закрыть</button>
-        <p class="selector__title">Выбери сложность</p>
-      </div>
-    </div>
-  </header>
-  <main>
-    <div class="ancients">
+<header>
+  <div class="start">
+    <img src="./assets/img/content/logo.png" alt="Game Logo" class="start__logo">
+    <button id="btn-start" class="btn">Начать игру!</button>
+  </div>
+  <div class="selector__bg">
+    <div class="selector__wrapper">
       <button id="btn-close" class="close">Закрыть</button>
-      <p class="ancients__title">Выберите персонажа</p>
-      <p class="ancients__hero"></p>
-      <div class="ancients__container">
-        <ul class="slider__container"></ul>
-        <div class="controls__container">
-          <ul class="slider__controls">
-            <li class="controls controls__prev">Назад</li>
-            <li class="controls controls__next">Вперед</li>
-          </ul>
-          <button id="btn-select" class="ancients__select">Выбрать</button>
-        </div>
+      <p class="selector__title">Выбери сложность</p>
+    </div>
+  </div>
+  <div class="again">
+    <button id="btn-start" class="btn">Начать заново!</button>
+  </div>
+</header>
+<main>
+  <section class="ancients">
+    <button id="btn-close" class="close">Закрыть</button>
+    <p class="ancients__title">Выберите персонажа</p>
+    <p class="ancients__hero"></p>
+    <div class="ancients__container">
+      <ul class="slider__container"></ul>
+      <div class="controls__container">
+        <ul class="slider__controls">
+          <li class="controls controls__prev">Назад</li>
+          <li class="controls controls__next">Вперед</li>
+        </ul>
+        <button id="btn-select" class="ancients__select">Выбрать</button>
       </div>
     </div>
-  </main>
+  </section>
+  <section class="deck">
+    <div class="deck__cards">
+      <img src="./assets/img/content/mythicCardBackground.png" alt="Mythical Card" class="card__mythical">
+      <div class="card__empty"></div>
+    </div>
+    <div class="deck__tracker">
+        <div><p class="deck__title">Этап I</p></div>
+        <div class="stage firstStage__green"></div>
+        <div class="stage firstStage__brown"></div>
+        <div class="stage firstStage__blue"></div>
+        <div><p class="deck__title">Этап II</p></div>
+        <div class="stage secondStage__green"></div>
+        <div class="stage secondStage__brown"></div>
+        <div class="stage secondStage__blue"></div>
+        <div><p class="deck__title">Этап III</p></div>
+        <div class="stage thirdStage__green"></div>
+        <div class="stage thirdStage__brown"></div>
+        <div class="stage thirdStage__blue"></div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="game__info">
+    <p class="info info__difficult"></p>
+    <p class="info info__hero"></p>
+    <p class="info info__total"></p>
+    <p class="info info__left"></p>
+  </div>
+</footer>
 </body>
 </html>
