@@ -3,6 +3,8 @@ import loadAncientsCards from "./ancients";
 import { tns } from "tiny-slider";
 import ancientsData from "../data/ancients";
 
+export let currentDifficult = 0;
+
 window.addEventListener('DOMContentLoaded', () => {
 
     const startBtn = document.querySelector('#btn-start');
@@ -13,14 +15,14 @@ window.addEventListener('DOMContentLoaded', () => {
     //Load default difficulties
     function loadDifficultiesFromFile() {
         if(difficulties.length > 0) {
-            for(let i = 0; i < difficulties.length; i++) {
+            difficulties.forEach((el, i) => {
                 const btnDiff = document.createElement('button');
                 btnDiff.classList.add('btn');
-                btnDiff.setAttribute('id', difficulties[i].id);
-                btnDiff.textContent = difficulties[i].name;
+                btnDiff.setAttribute('id', el.id);
+                btnDiff.textContent = el.name;
                 selectorWrapper.appendChild(btnDiff);
                 btnDiff.addEventListener('click', (e) => selectDifficulties(e, i));
-            }
+            });
         }
     }
     //End load default difficulties
@@ -28,14 +30,14 @@ window.addEventListener('DOMContentLoaded', () => {
     //Load ancients
     function loadAncientsFromFile() {
         const sliderContainer = document.querySelector('.slider__container');
-        for(let i = 0; i < ancientsData.length; i++) {
+        ancientsData.forEach(el => {
             const li = document.createElement('li');
             li.classList.add('slider__item');
             const img = document.createElement('img');
-            img.src = ancientsData[i].cardFace;
+            img.src = el.cardFace;
             li.appendChild(img);
             sliderContainer.appendChild(li);
-        }
+        });
         const slider = tns({
             container: '.slider__container',
             items: 1,
@@ -79,7 +81,7 @@ window.addEventListener('DOMContentLoaded', () => {
     //Select Difficulties
     function selectDifficulties(event, iterable) {
         if(event.target.id == difficulties[iterable].id) {
-            console.log(difficulties[iterable].name);
+            currentDifficult = iterable;
         }
         selectorWrapper.classList.remove('active');
         loadAncientsCards();

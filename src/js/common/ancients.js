@@ -1,4 +1,6 @@
 import ancientsData from "../data/ancients";
+import cardRandomizer from "./cards";
+import { currentDifficult } from "./difficulties";
 
 let currentAncient = 0;
 
@@ -24,6 +26,5 @@ document.querySelector('.controls__prev').addEventListener('click', () => {
 });
 
 document.querySelector('.ancients__select').addEventListener('click', () => {
-    console.log(ancientsData[currentAncient].name);
-    
+    cardRandomizer(currentAncient, currentDifficult);
 });
